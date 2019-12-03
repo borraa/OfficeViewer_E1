@@ -1,0 +1,10 @@
+/build/
+/WebContent/logs/
+/target/
+/.idea/
+/.settings
+/.vscode
+/.classpath
+/.project
+# Project exclude paths
+/classes/

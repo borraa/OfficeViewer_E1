@@ -1,0 +1,540 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Page>
+	<Section Type="Demo" USE="0">
+		<Title Title="Demo">
+			<Column ID="SLIP_Create" Title="">
+				<SubTitle ID="" Title=""></SubTitle>
+				<Description>
+					/////////////////////////////////////////////////////<br />
+					// vServer	: DEV(개발 서버), QAS(테스트 서버), PRD(운영 서버)<br />
+					// vViewMode	: EDIT(편집모드), VIEW(조회모드)<br />
+					// vUserID	: 사번<br />
+					// vJDocNo : 전자증빙 I/F Key<br />
+					// vLang	: 언어<br />
+					// Return : 뷰어 URL<br />
+				</Description>
+				<Parameter>
+					<!-- 라디오 입력 -->
+					<Input type="Radio" name="SLIPCreate_Server" Title="vServer">
+						<Item ID="DEV" Title="DEV"></Item>
+						<Item ID="QAS" Title="QAS"></Item>
+						<Item ID="PRD" Title="PRD"></Item>
+					</Input> 
+					<Input type="Radio" name="SLIPCreate_ViewMode" Title="vViewMode">
+						<Item ID="EDIT" Title="EDIT"></Item>
+						<Item ID="VIEW" Title="VIEW"></Item>
+						<Item ID="AFTER" Title="AFTER"></Item>
+					</Input>
+					<!-- 텍스트 입력 -->
+					<Input type="Text" name="SLIPCreate_UserInfo" Title="vUserID">
+						<Item ID="UserID" Title="UserID" Value="woonam" Hint="사번을 입력하세요."></Item>
+					</Input>
+					<Input type="Text" name="SLIPCreate_JDocNo" Title="vJDocNo">
+						<Item ID="JDocNo" Title="JDocNo" Value="test" Hint="전표번호를 입력하세요."></Item>
+					</Input>
+					<Input type="Radio" name="SLIPCreate_Lang" Title="vLang">
+						<Item ID="KO" Title="KO"></Item>
+						<Item ID="EN" Title="EN"></Item>
+					</Input>
+					<Input type="Text" name="SLIPCreate_CorpNo" Title="vCorpNo">
+						<Item ID="CorpNo" Title="CorpNo" Value="1000" Hint="법인코드를 입력하세요."></Item>
+					</Input>
+				</Parameter>
+			</Column>
+		</Title>
+	</Section>
+	<Section Type="Web" USE="1">
+		<Title Title="전자증빙 Viewer(Web)">
+			<Column ID="SLIP_Create" Title="전자증빙 Viewer 생성">
+				<SubTitle ID="Create_SubTitle" Title="전자증빙 Viewer를 생성합니다."></SubTitle>
+				<Description>
+					/////////////////////////////////////////////////////<br />
+					// vServer	: DEV(개발 서버), QAS(테스트 서버), PRD(운영 서버)<br />
+					// vViewMode	: EDIT(편집모드), VIEW(조회모드)<br />
+					// vUserID	: 사번<br />
+					// vJDocNo : 전자증빙 I/F Key<br />
+					// vLang	: 언어<br />
+					// Return : 뷰어 URL<br />
+				</Description>
+				<Parameter>
+					<!-- 라디오 입력 -->
+					<Input type="Radio" name="SLIPCreate_Server" Title="vServer">
+						<Item Title="DEV" Value="DEV"></Item>
+						<Item Title="QAS" Value="QAS"></Item>
+						<Item Title="PRD" Value="PRD"></Item>
+					</Input> 
+					<Input type="Radio" name="SLIPCreate_ViewMode" Title="vViewMode">
+						<Item Title="EDIT" Value="EDIT"></Item>
+						<Item Title="VIEW" Value="VIEW"></Item>
+						<Item Title="AFTER" Value="AFTER"></Item>
+					</Input>
+					<!-- 텍스트 입력 -->
+					<Input type="Text" name="SLIPCreate_UserInfo" Title="vUserID">
+						<Item Title="UserID" Value="woonam" Hint="사번을 입력하세요."></Item>
+					</Input>
+					<Input type="Text" name="SLIPCreate_JDocNo" Title="vJDocNo">
+						<Item Title="JDocNo" Value="test" Hint="전표번호를 입력하세요."></Item>
+					</Input>
+					<Input type="Radio" name="SLIPCreate_Lang" Title="vLang">
+						<Item Title="KO" Value="KO"></Item>
+						<Item Title="EN" Value="EN"></Item>
+					</Input>
+					<Input type="Text" name="SLIPCreate_CorpNo" Title="vCorpNo">
+						<Item Title="CorpNo" Value="1000" Hint="법인코드를 입력하세요."></Item>
+					</Input>
+				</Parameter>
+				<SampleURL>index.jsp?KEY=test&amp;SVR_MODE=PRD&amp;USER_ID=woonam&amp;CORP_NO=1000&amp;VIEW_MODE=EDIT</SampleURL>
+			</Column>
+			<Column ID="SLIP_Init" Title="전자증빙 Viewer 초기화">
+				<SubTitle ID="Reset_SubTitle" Title="전자증빙 Viewer를 초기화합니다."></SubTitle>
+				<Description>
+					/////////////////////////////////////////////////////<br />
+					// Return : Viewer URL <br />
+				</Description>
+				<Parameter></Parameter>
+				<SampleURL>index.jsp?KEY=EMPTY&amp;SVR_MODE=PRD&amp;USER_ID=woonam&amp;CORP_NO=1000&amp;VIEW_MODE=EDIT</SampleURL>
+			</Column>
+			<Column ID="SLIP_Load" Title="전자증빙  조회">
+				<SubTitle ID="Load_SubTitle" Title="전자증빙 I/F Key에 연결된 전자증빙을 조회합니다. "></SubTitle>
+				<Description>
+					/////////////////////////////////////////////////////<br />
+					// vServer : 서버 분기 // vJDocNo : 전자증빙 I/F Key<br />
+					// Return : 뷰어 URL <br />
+				</Description>
+				<Parameter>
+					<Input type="Text" name="SLIPLoad_JDocNo" Title="vJDocNo">
+						<Item Title="JDocNo" Value="" Hint="전표번호를 입력하세요."></Item>
+					</Input>
+				</Parameter>
+				<SampleURL>index.jsp?KEY=test1&amp;SVR_MODE=PRD&amp;USER_ID=woonam&amp;CORP_NO=1000&amp;VIEW_MODE=EDIT</SampleURL>
+			</Column>
+			<Column ID="SLIP_SetMode" Title="전자증빙 Viewer 모드 변경">
+				<SubTitle ID="SetMode_SubTitle" Title="Viewer의 모드(EDIT, VIEW)를 변경할 수 있습니다."></SubTitle>
+				<Description>
+					/////////////////////////////////////////////////////<br />
+					// vViewMode : EDIT(편집모드), VIEW(조회모드)<br />
+					// Return : 뷰어 URL <br />
+				</Description>
+				<Parameter>
+					<Input type="Radio" name="SLIPSetMode_ViewMode" Title="vViewMode">
+						<Item Title="EDIT" Value="EDIT"></Item>
+						<Item Title="VIEW" Value="VIEW"></Item>
+						<Item Title="AFTER" Value="AFTER"></Item>
+					</Input>
+				</Parameter>
+				<SampleURL>index.jsp?KEY=test&amp;SVR_MODE=PRD&amp;USER_ID=woonam&amp;CORP_NO=1000&amp;VIEW_MODE=VIEW</SampleURL>
+			</Column>
+		</Title>
+	</Section>
+	<Section Type="Frame" USE="0">
+		<Title Title="전자증빙 Viewer(Frame)">
+			<Column ID="SLIP_Create" Title="전자증빙 Viewer 생성">
+				<SubTitle ID="Create_SubTitle" Title="전자증빙 Viewer를 생성합니다."></SubTitle>
+				<Description>
+					/////////////////////////////////////////////////////<br />
+					// vServer	: DEV(개발 서버), QAS(테스트 서버), PRD(운영 서버)<br />
+					// vViewMode	: EDIT(편집모드), VIEW(조회모드)<br />
+					// vUserID	: 사번<br />
+					// vJDocNo : 전자증빙 I/F Key<br />
+					// vLang	: 언어<br />
+					// Return : 뷰어 URL<br />
+				</Description>
+				<Parameter>
+					<!-- 라디오 입력 -->
+					<Input type="Radio" name="SLIPCreate_Server" Title="vServer">
+						<Item Title="DEV" Value="DEV"></Item>
+						<Item Title="QAS" Value="QAS"></Item>
+						<Item Title="PRD" Value="PRD"></Item>
+					</Input> 
+					<Input type="Radio" name="SLIPCreate_ViewMode" Title="vViewMode">
+						<Item Title="EDIT" Value="EDIT"></Item>
+						<Item Title="VIEW" Value="VIEW"></Item>
+						<Item Title="AFTER" Value="AFTER"></Item>
+					</Input>
+					<!-- 텍스트 입력 -->
+					<Input type="Text" name="SLIPCreate_UserInfo" Title="vUserID">
+						<Item Title="UserID" Value="woonam" Hint="사번을 입력하세요."></Item>
+					</Input>
+					<Input type="Text" name="SLIPCreate_JDocNo" Title="vJDocNo">
+						<Item Title="JDocNo" Value="test" Hint="전표번호를 입력하세요."></Item>
+					</Input>
+					<Input type="Radio" name="SLIPCreate_Lang" Title="vLang">
+						<Item Title="KO" Value="KO"></Item>
+						<Item Title="EN" Value="EN"></Item>
+					</Input>
+					<Input type="Text" name="SLIPCreate_CorpNo" Title="vCorpNo">
+						<Item Title="CorpNo" Value="1000" Hint="법인코드를 입력하세요."></Item>
+					</Input>
+				</Parameter>
+			</Column>
+			<Column ID="SLIP_Init" Title="전자증빙 Viewer 초기화">
+				<SubTitle ID="Reset_SubTitle" Title="전자증빙 Viewer를 초기화합니다."></SubTitle>
+				<Description>
+					/////////////////////////////////////////////////////<br />
+					// Return : Viewer URL <br />
+				</Description>
+				<Parameter></Parameter>
+			</Column>
+			<Column ID="SLIP_Load" Title="전자증빙  조회">
+				<SubTitle ID="Load_SubTitle" Title="전자증빙 I/F Key에 연결된 전자증빙을 조회합니다. "></SubTitle>
+				<Description>
+					/////////////////////////////////////////////////////<br />
+					// vServer : 서버 분기 // vJDocNo : 전자증빙 I/F Key<br />
+					// Return : 뷰어 URL <br />
+				</Description>
+				<Parameter>
+					<Input type="Text" name="SLIPLoad_JDocNo" Title="vJDocNo">
+						<Item Title="JDocNo" Value="" Hint="전표번호를 입력하세요."></Item>
+					</Input>
+				</Parameter>
+			</Column>
+			<Column ID="SLIP_SetMode" Title="전자증빙 Viewer 모드 변경">
+				<SubTitle ID="SetMode_SubTitle" Title="Viewer의 모드(EDIT, VIEW)를 변경할 수 있습니다."></SubTitle>
+				<Description>
+					/////////////////////////////////////////////////////<br />
+					// vViewMode : EDIT(편집모드), VIEW(조회모드)<br />
+					// Return : 뷰어 URL <br />
+				</Description>
+				<Parameter>
+					<Input type="Radio" name="SLIPSetMode_ViewMode" Title="vViewMode">
+						<Item Title="EDIT" Value="EDIT"></Item>
+						<Item Title="VIEW" Value="VIEW"></Item>
+						<Item Title="AFTER" Value="AFTER"></Item>
+					</Input>
+				</Parameter>
+			</Column>
+		</Title>
+	</Section>
+	<Section Type="ActiveX" USE="0">
+		<Title Title="ActiveX">
+			<Column ID="SLIP_Create" Title="">
+				<SubTitle ID="" Title=""></SubTitle>
+				<Description>
+					/////////////////////////////////////////////////////<br />
+					// vServer	: DEV(개발 서버), QAS(테스트 서버), PRD(운영 서버)<br />
+					// vViewMode	: EDIT(편집모드), VIEW(조회모드)<br />
+					// vUserID	: 사번<br />
+					// vJDocNo : 전자증빙 I/F Key<br />
+					// vLang	: 언어<br />
+					// Return : 뷰어 URL<br />
+				</Description>
+				<Parameter>
+					<!-- 라디오 입력 -->
+					<Input type="Radio" name="SLIPCreate_Server" Title="vServer">
+						<Item ID="DEV" Title="DEV"></Item>
+						<Item ID="QAS" Title="QAS"></Item>
+						<Item ID="PRD" Title="PRD"></Item>
+					</Input> 
+					<Input type="Radio" name="SLIPCreate_ViewMode" Title="vViewMode">
+						<Item ID="EDIT" Title="EDIT"></Item>
+						<Item ID="VIEW" Title="VIEW"></Item>
+						<Item ID="AFTER" Title="AFTER"></Item>
+					</Input>
+					<!-- 텍스트 입력 -->
+					<Input type="Text" name="SLIPCreate_UserInfo" Title="vUserID">
+						<Item ID="UserID" Title="UserID" Value="woonam" Hint="사번을 입력하세요."></Item>
+					</Input>
+					<Input type="Text" name="SLIPCreate_JDocNo" Title="vJDocNo">
+						<Item ID="JDocNo" Title="JDocNo" Value="test" Hint="전표번호를 입력하세요."></Item>
+					</Input>
+					<Input type="Radio" name="SLIPCreate_Lang" Title="vLang">
+						<Item ID="KO" Title="KO"></Item>
+						<Item ID="EN" Title="EN"></Item>
+					</Input>
+					<Input type="Text" name="SLIPCreate_CorpNo" Title="vCorpNo">
+						<Item ID="CorpNo" Title="CorpNo" Value="1000" Hint="법인코드를 입력하세요."></Item>
+					</Input>
+				</Parameter>
+			</Column>
+		</Title>
+	</Section>
+	<Section Type="WebService" USE="1">
+		<Title Title="전표 연결">
+			<Column ID="Change_JDocNo" Title="전자증빙 I/F Key 변경">
+				<SubTitle ID="Change_SubTitle" Title="전자증빙의 I/F Key를 변경합니다."></SubTitle>
+				<Description>
+					///////////////////////////////////////////////////// <br />
+					// Command		: SET_CHANGE_JDOCNO <br />
+					// UserID		: 사번 <br />
+					// From_JDocNo	: 원본 전자증빙 I/F Key <br />
+					// To_JDocNo	: 바꿀 전자증빙 I/F Key <br />
+					// ReturnType	: String or JSON // Return : 성공(result=T^message=“변경된 증빙 및 첨부파일 수”), 실패( result=F^message=메세지) <br />
+				</Description>
+				<Parameter>
+					<Input type="Text" name="ChangeJDocNo_UserInfo" Title="vUserID">
+						<Item Title="UserID" Value="" Hint="사번을 입력하세요."></Item>
+					</Input>
+					<Input type="Text" name="ChangeJDocNo_FromNo" Title="vFromNo">
+						<Item Title="JDocNo" Value="" Hint="전표번호를 입력하세요."></Item>
+					</Input>
+					<Input type="Text" name="ChangeJDocNo_ToNo" Title="vToNo">
+						<Item Title="JDocNo" Value="" Hint="전표번호를 입력하세요."></Item>
+					</Input>
+					<Input type="Radio" name="ChangeJDocNo_ReturnType" Title="vReturnType">
+						<Item Title="String" Value="String"></Item>
+						<Item Title="JSON" Value="JSON"></Item>
+					</Input>
+				</Parameter>
+			</Column>
+			<Column ID="Delete_Data" Title="전자증빙 삭제 ">
+				<SubTitle ID="DelData_SubTitle" Title="전자증빙 I/F Key에 연결된 전자증빙 및 첨부파일을 삭제합니다."></SubTitle>
+				<Description>
+					///////////////////////////////////////////////////// <br />
+					// Command		: DELETE_DATA <br />
+					// UserID		: 사번 <br />
+					// JDocNo		: 전자증빙 I/F Key(여러개 일 경우, 같은 이름의 Key파라미터 추가 )<!--  Ex> JDocNo=test1&JDocNo=test2 --> <br />
+					// ReturnType	: String or JSON // Return : 성공(result=T^message=“”), 실패( result=F^message=메세지) <br />
+				</Description>
+				<Parameter>
+					<Input type="Text" name="DelData_UserInfo" Title="vUserID">
+						<Item Title="UserID" Value="" Hint="사번을 입력하세요."></Item>
+					</Input>
+					<Input type="Text" name="DelData_JDocNo" Title="vJDocNo">
+						<Item Title="JDocNo" Value="" Hint="전표번호를 입력하세요."></Item>
+					</Input>
+					<Input type="Radio" name="DelData_ReturnType" Title="vReturnType">
+						<Item Title="String" Value="String"></Item>
+						<Item Title="JSON" Value="JSON"></Item>
+					</Input>
+				</Parameter>
+			</Column>
+			<Column ID="Delete_SDocNo" Title="전자증빙 삭제 (SDOC_NO)">
+				<SubTitle ID="DelSDoc_SubTitle" Title="전자증빙 I/F Key에 연결된 전자증빙 및 첨부파일을 삭제합니다."></SubTitle>
+				<Description>
+					///////////////////////////////////////////////////// <br />
+					// Command 		: DELETE_DATA_SDOCNO <br />
+					// UserID		: 사번 <br />
+					// CoCD			: 법인 <br />
+					// SDocNo		: 전자증빙 I/F Key(여러개 일 경우, 같은 이름의 Key파라미터 추가) <!-- Ex> SDocNo=test1&SDocNo=test2 --> <br />
+					// ReturnType	: String or JSON // Return : 성공(result=T^message=“”), 실패( result=F^message=메세지) <br />
+				</Description>
+				<Parameter>
+					<Input type="Text" name="DelSDoc_UserInfo" Title="vUserID">
+						<Item Title="UserID" Value="" Hint="사번을 입력하세요."></Item>
+					</Input>
+					<Input type="Text" name="DelSDoc_CoCD" Title="vCoCD">
+						<Item Title="CoCD" Value="" Hint="법인코드를 입력하세요."></Item>
+					</Input>
+					<Input type="Text" name="DelSDoc_SDocNo" Title="vSDocNo">
+						<Item Title="SDocNo" Value="" Hint=""></Item>
+					</Input>
+					<Input type="Radio" name="DelSDoc_ReturnType" Title="vReturnType">
+						<Item Title="String" Value="String"></Item>
+						<Item Title="JSON" Value="JSON"></Item>
+					</Input>
+				</Parameter>
+			</Column>
+		</Title>
+		<Title Title="전자증빙 변환">
+			<Column ID="Change_Step" Title="전자증빙 상태 변경">
+				<SubTitle ID="Step_SubTitle" Title="전자증빙 I/F key에 등록된 증빙의 상태를 변경합니다."></SubTitle>
+				<Description>
+					///////////////////////////////////////////////////// <br />
+					// Command : SET_CHANGE_STEP <br />
+					// UserID	: 사번 <br />
+					// JDocNo	: 전자증빙 I/F Key (여러개 일 경우, 같은 이름의 Key파라미터 추가) <!-- Ex> DocIRN=test1&DocIRN=test2 --> <br />
+					// Step	: 전자증빙 상태 값(EX : 0 ~ 9) <br />
+					// ReturnType : String or JSON <br />
+					// Return : 성공(result=T^message=“”^key="증빙 키"), 실패( result=F^message=메세지^key="증빙 키") <br />
+				</Description>
+				<Parameter>
+					<Input type="Text" name="ChangeStep_UserInfo" Title="vUserID">
+						<Item Title="UserID" Value="" Hint="사번을 입력하세요."></Item>
+					</Input>
+					<Input type="Text" name="ChangeStep_JDocNo" Title="vJDocNo">
+						<Item Title="JDocNo" Value="" Hint="전표번호를 입력하세요."></Item>
+					</Input>
+					<Input type="Radio" name="ChangeStep_Step" Title="vStep">
+						<Item Title="초기" Value="0"></Item>
+						<Item Title="연결" Value="2"></Item>
+						<Item Title="완료" Value="3"></Item>
+						<Item Title="회수" Value="5"></Item>
+						<Item Title="반려" Value="7"></Item>
+						<Item Title="삭제" Value="9"></Item>
+					</Input>
+					<Input type="Radio" name="ChangeStep_ReturnType" Title="vReturnType">
+						<Item Title="String" Value="String"></Item>
+						<Item Title="JSON" Value="JSON"></Item>
+					</Input>
+				</Parameter>
+			</Column>
+		</Title>
+		<Title Title="전자증빙 복사">
+			<Column ID="Copy_SLIP" Title="전자증빙 복사">
+				<SubTitle ID="Copy_SubTitle" Title="서버에 등록된 전자증빙의 복사본을 생성합니다."></SubTitle>
+				<Description>
+					///////////////////////////////////////////////////// <br />
+					// Command : COPY_SLIP <br />
+					// UserID : 사번 <br />
+					// From_JDocNo : 복사 원본 증빙 I/F Key <br />
+					// To_JDocNo : 복사 사본 증빙 I/F Key <br />
+					// CopyTitle : 복사본에 대한 추가 Title ( 사본, 반려.. )  <br />
+					// CopyFlag : 복사본에 사본 워터마크 표시 여부 <br />
+					// IsDel : 복사본의 I/F Key에 연결된 증빙이 존재할 경우 기존 증빙 삭제 여부 <br />
+					// ReturnType : String or JSON <br />
+					// Return : 성공(result=T^message=“”), 실패(return=F^message=메세지) <br />
+				</Description>
+				<Parameter>
+					<Input type="Text" name="CopySLIP_UserInfo" Title="vUserID">
+						<Item Title="UserID" Value="" Hint="사번을 입력하세요."></Item>
+					</Input>
+					<Input type="Text" name="CopySLIP_FromNo" Title="vFromNo">
+						<Item Title="FromNo" Value="" Hint="전표번호를 입력하세요."></Item>
+					</Input>
+					<Input type="Text" name="CopySLIP_ToNo" Title="vToNo">
+						<Item Title="ToNo" Value="" Hint="전표번호를 입력하세요."></Item>
+					</Input>
+					<Input type="Text" name="CopySLIP_CopyTitle" Title="vCopyTitle">
+						<Item Title="CopyTitle" Value="" Hint=""></Item>
+					</Input>
+					<Input type="Radio" name="CopySLIP_SetFlag" Title="vSetFlag">
+						<Item Title="표시" Value="1"></Item>
+						<Item Title="미표시" Value="0"></Item>
+					</Input>
+					<Input type="Radio" name="CopySLIP_IsDel" Title="vIsDel">
+						<Item Title="기존 증빙 삭제 O" Value="1"></Item>
+						<Item Title="기존 증빙 삭제 X" Value="0"></Item>
+					</Input>
+					<Input type="Radio" name="CopySLIP_ReturnType" Title="vReturnType">
+						<Item Title="String" Value="String"></Item>
+						<Item Title="JSON" Value="JSON"></Item>
+					</Input>
+				</Parameter>
+			</Column>
+		</Title>
+		<Title Title="기타 API">
+			<Column ID="Get_SlipList" Title="전자증빙 증빙 리스트 반환">
+				<SubTitle ID="Get_SubTitle" Title="전자증빙 I/F Key에 연결된 전자증빙 및 첨부파일 리스트를 가져옵니다."></SubTitle>
+				<Description>
+					///////////////////////////////////////////////////// <br />
+					// Command : GET_SLIP_LIST <br />
+					// UserID : 유저 ID <br />
+					// PartCD	: 부서 코드 <br />
+					// CoCD	: 법인 코드 <br />
+					// ImageType	: 이미지 구분 (Thumb : 썸네일, Original : 원본) <br />
+					// Where	: 기타 필요한 필드 명 및 값 (여러개 일 경우, 같은 이름의 Key파라미터 추가)<!--  Ex> Where=SDOC_NAME:1&Where=SDOC_TYPE:1001 --><br />
+					// Return	: I/F Key와 연결된 증빙 리스트 JSON <br />
+				</Description>
+				<Parameter>
+					<Input type="Text" name="SlipList_UserInfo" Title="vUserID">
+						<Item Title="UserID" Value="" Hint="사번을 입력하세요."></Item>
+					</Input>
+					<Input type="Text" name="SlipList_PartCD" Title="vPartCD">
+						<Item Title="PartCD" Value="" Hint="부서코드를 입력하세요."></Item>
+					</Input>
+					<Input type="Text" name="SlipList_CoCD" Title="vCoCD">
+						<Item Title="CoCD" Value="" Hint="법인코드를 입력하세요."></Item>
+					</Input>
+					<Input type="Text" name="SlipList_ImageType" Title="vImageType">
+						<Item Title="ImageType" Value="" Hint="사번을 입력하세요."></Item>
+					</Input>
+					<Input type="Text" name="SlipList_Where" Title="vWhere">
+						<Item Title="Where" Value="" Hint="필드명/값 입력하세요."></Item>
+					</Input>
+				</Parameter>
+			</Column>
+			<Column ID="Get_AllCnt" Title="전자증빙 DB 수 반환">
+				<SubTitle ID="AllCnt_SubTitle" Title="전표에 연결된 전자증빙 및 첨부파일 수를 DB에서 조회하여 반환합니다."></SubTitle>
+				<Description>
+					///////////////////////////////////////////////////// <br />
+					// Command : GET_ALL_COUNT <br />
+					// JDocNo	: 전자증빙 I/F Key <br />
+					// ReturnType : String or JSON <br />
+					// Return : 성공(return=T^message=전체갯수), 실패(return=F^message=메세지) <br />
+				</Description>
+				<Parameter>
+					<Input type="Text" name="AllCnt_JDocNo" Title="vJDocNo">
+						<Item Title="JDocNo" Value="" Hint="전표번호를 입력하세요."></Item>
+					</Input>
+					<Input type="Radio" name="AllCnt_ReturnType" Title="vReturnType">
+						<Item Title="String" Value="String"></Item>
+						<Item Title="JSON" Value="JSON"></Item>
+					</Input>
+				</Parameter>
+			</Column>
+			<Column ID="Get_SlipCnt" Title="전자증빙 DB 증빙 수 반환">
+				<SubTitle ID="SlipCnt_SubTitle" Title="전표에 연결된 전자증빙 수를 DB에서 조회하여 반환합니다."></SubTitle>
+				<Description>
+					///////////////////////////////////////////////////// <br />
+					// OpiCommand <br />
+					// Command : GET_SLIP_COUNT <br />
+					// JDocNo	: 전자증빙 I/F Key <br />
+					// ReturnType : String or JSON <br />
+					// Return : 성공(return=T^message=전체갯수), 실패(return=F^message=메세지) <br />
+				</Description>
+				<Parameter>
+					<Input type="Text" name="SlipCnt_JDocNo" Title="vJDocNo">
+						<Item Title="JDocNo" Value="" Hint="전표번호를 입력하세요."></Item>
+					</Input>
+					<Input type="Radio" name="SlipCnt_ReturnType" Title="vReturnType">
+						<Item Title="String" Value="String"></Item>
+						<Item Title="JSON" Value="JSON"></Item>
+					</Input>
+				</Parameter>
+			</Column>
+			<Column ID="Get_AttachCnt" Title="전자증빙 DB 첨부파일 수 반환">
+				<SubTitle ID="AttachCnt_SubTitle" Title="전표에 연결된 첨부파일 수를 DB에서 조회하여 반환합니다."></SubTitle>
+				<Description>
+					///////////////////////////////////////////////////// <br />
+					// OpiCommand <br />
+					// Command : GET_ATTACH_COUNT <br />
+					// JDocNo	: 전자증빙 I/F Key <br />
+					// ReturnType : String or JSON <br />
+					// Return : 성공(return=T^message=전체갯수), 실패(return=F^message=메세지) <br />
+				</Description>
+				<Parameter>
+					<Input type="Text" name="AttachCnt_JDocNo" Title="vJDocNo">
+						<Item Title="JDocNo" Value="" Hint="전표번호를 입력하세요."></Item>
+					</Input>
+					<Input type="Radio" name="AttachCnt_ReturnType" Title="vReturnType">
+						<Item Title="String" Value="String"></Item>
+						<Item Title="JSON" Value="JSON"></Item>
+					</Input>
+				</Parameter>
+			</Column>
+			<Column ID="Doc_Templete" Title="전자증빙 템플릿 등록">
+				<SubTitle ID="Templete_SubTitle" Title=""></SubTitle>
+				<Description>
+					///////////////////////////////////////////////////// <br />
+					// OpiCommand <br />
+					// Command : DOC_TEMPLETE <br />
+					// UserID	: 사번 <br />
+					// CoCD	: 법인 <br />
+					// JDocNo : 전자증빙 I / F Key <br />
+					// Type	: 양식 타입  <br />
+					// Param1 : 파라미터1 <br />
+					// Param2 : 파라미터2 <br />
+					// Param3 : 파라미터3 <br />
+					// Return : 성공(return=T^message=전체갯수), 실패(return=F^message=메세지) <br />
+				</Description>
+				<Parameter>
+					<Input type="Text" name="Templete_UserInfo" Title="vUserID">
+						<Item Title="UserID" Value="" Hint="사번을 입력하세요."></Item>
+					</Input>
+					<Input type="Text" name="Templete_CoCD" Title="vCoCD">
+						<Item Title="CoCD" Value="" Hint="전표번호를 입력하세요."></Item>
+					</Input>
+					<Input type="Text" name="Templete_JDocNo" Title="vJDocNo">
+						<Item Title="JDocNo" Value="" Hint="전표번호를 입력하세요."></Item>
+					</Input>
+					<Input type="Text" name="Templete_Type" Title="vType">
+						<Item Title="Type" Value="" Hint="사번을 입력하세요."></Item>
+					</Input>
+					<Input type="Text" name="Templete_Param1" Title="vParam1">
+						<Item Title="Param1" Value="" Hint="전표번호를 입력하세요."></Item>
+					</Input>
+					<Input type="Text" name="Templete_Param2" Title="vParam2">
+						<Item Title="Param2" Value="" Hint="전표번호를 입력하세요."></Item>
+					</Input>
+					<Input type="Text" name="Templete_Param3" Title="vParam3">
+						<Item Title="Param3" Value="" Hint="전표번호를 입력하세요."></Item>
+					</Input>
+					<Input type="Radio" name="Templete_ReturnType" Title="vReturnType">
+						<Item Title="String" Value="String"></Item>
+						<Item Title="JSON" Value="JSON"></Item>
+					</Input>
+				</Parameter>
+			</Column>
+		</Title>
+	</Section>
+</Page>
