@@ -54,7 +54,12 @@
 
 	String command 										= request.getParameter("COMMAND");
 	String isInterface 									= request.getParameter("INTERFACE");
-	
+	String strApprStat									= request.getParameter("APPR");
+
+	if(strApprStat == null || strApprStat.equals("")){
+		strApprStat = "N";
+	}
+
 	if(C.isBlank(strKey))
   	{
 		RequestDispatcher rd = request.getRequestDispatcher("slip_error.jsp?ERR_MSG=EMPTY_JDOCNO");
@@ -135,6 +140,7 @@ $(function(){
 	objParams["CORP_NM"] 			= "<%=strResCorpNM %>";
 	objParams["MENU"] 				= "<%=strMenu %>";
 	objParams["XPI_PORT"]			= "<%=localWAS_Port%>";
+	objParams["APPR"]				= "<%=strApprStat%>";
 
 	var useMobile = "<%=strUseMobile%>";
 	var targetURL = "<c:url value='/slip_actor.jsp' />";

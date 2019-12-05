@@ -10,6 +10,7 @@ $.Sample = {
 	vCorpNo : null,
 	vViewMode : null,
 	vJDocNo : null,
+	vApprStat : null,
 	init : function(params){
 		
 		$.Sample.WebParams = params;
@@ -286,6 +287,7 @@ $.Sample = {
 							+"&USER_ID="		+ $.Sample.vUserID
 							+"&CORP_NO="		+ $.Sample.vCorpNo
 							+"&VIEW_MODE="		+ $.Sample.vViewMode
+							+"&APPR="			+ $.Sample.vApprStat
 
 
 		var vResult		= $.Sample.vURL + "index.jsp?"+ vParams;
@@ -306,6 +308,7 @@ $.Sample = {
 	  	var fnUserInfo		= $("#SLIPCreate_UserInfo").val();
 	  	var fnLang			= $(':radio[name="SLIPCreate_Lang"]:checked').val();
 	  	var fnCorpNo 		= $("#SLIPCreate_CorpNo").val();
+		var fnApprStat 		= $(':radio[name="SLIPCreate_ApprStat"]:checked').val();
 	  	
 	  	if(fnCorpNo == "")
 	  	{
@@ -313,12 +316,12 @@ $.Sample = {
 	  		return;
 	  	}
 	  	
-	  	var ret = $.Sample.SLIP_Create(fnURL, fnSvrMode, fnJDocNo, fnUserInfo, fnCorpNo, fnViewMode);
+	  	var ret = $.Sample.SLIP_Create(fnURL, fnSvrMode, fnJDocNo, fnUserInfo, fnCorpNo, fnViewMode, fnApprStat);
 
 	  	//뷰어 새로고침
 		$("#OfficeXPIFrm").attr("src", ret);
 	},
-	SLIP_Create : function(fnURL, fnSvrMode, fnJDocNo, fnUserInfo, fnCorpNo, fnViewMode){
+	SLIP_Create : function(fnURL, fnSvrMode, fnJDocNo, fnUserInfo, fnCorpNo, fnViewMode, fnApprStat){
 		
 		$.Sample.vURL			= fnURL;
 		$.Sample.vSvrMode		= fnSvrMode;
@@ -326,6 +329,7 @@ $.Sample = {
 		$.Sample.vUserID		= fnUserInfo;
 		$.Sample.vCorpNo		= fnCorpNo;
 		$.Sample.vViewMode		= fnViewMode;
+		$.Sample.vApprStat		= fnApprStat;
 		
 		return $.Sample.makeViewerUrl($.Sample.vJDocNo);
 	},

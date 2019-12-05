@@ -64,10 +64,10 @@
 						<Item Title="PRD" Value="PRD"></Item>
 					</Input> 
 					<Input type="Radio" name="SLIPCreate_ViewMode" Title="vViewMode">
-						<Item Title="EDIT" Value="EDIT"></Item>
-						<Item Title="VIEW" Value="VIEW"></Item>
-						<Item Title="AFTER" Value="AFTER"></Item>
-					</Input>
+					<Item Title="EDIT" Value="EDIT"></Item>
+					<Item Title="VIEW" Value="VIEW"></Item>
+					<Item Title="AFTER" Value="AFTER"></Item>
+				</Input>
 					<!-- 텍스트 입력 -->
 					<Input type="Text" name="SLIPCreate_UserInfo" Title="vUserID">
 						<Item Title="UserID" Value="woonam" Hint="사번을 입력하세요."></Item>
@@ -81,6 +81,10 @@
 					</Input>
 					<Input type="Text" name="SLIPCreate_CorpNo" Title="vCorpNo">
 						<Item Title="CorpNo" Value="1000" Hint="법인코드를 입력하세요."></Item>
+					</Input>
+					<Input type="Radio" name="SLIPCreate_ApprStat" Title="vApprStat">
+						<Item Title="Y" Value="Y"></Item>
+						<Item Title="N" Value="N"></Item>
 					</Input>
 				</Parameter>
 				<SampleURL>index.jsp?KEY=test&amp;SVR_MODE=PRD&amp;USER_ID=woonam&amp;CORP_NO=1000&amp;VIEW_MODE=EDIT</SampleURL>

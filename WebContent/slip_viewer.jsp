@@ -81,7 +81,8 @@ $(function(){
 			SVR_MODE				:  "<c:out value="${mParams['SVR_MODE'][0]}" />",
 			MENU						:  "<c:out value="${mParams['MENU'][0]}" />",
 			XPI_PORT				: "<c:url value ="${mParams['XPI_PORT'][0]}" />",
-			MULTI_KEY				: <c:out value="${MULTI_KEY}" />,	
+			MULTI_KEY				: <c:out value="${MULTI_KEY}" />,
+			APPR					: "<c:url value ="${mParams['APPR'][0]}" />"
 	}
 	
 	$.Viewer.init(ViewerParams);

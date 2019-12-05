@@ -49,6 +49,7 @@ $(function(){
 			SVR_MODE				: "<c:url value ="${mParams['SVR_MODE'][0]}" />",
 			MENU						: "<c:url value ="${mParams['MENU'][0]}" />",
 			XPI_PORT				: "<c:url value ="${mParams['XPI_PORT'][0]}" />",
+			APPR					: "<c:url value ="${mParams['APPR'][0]}" />",
 			MULTI_KEY				: <c:out value="${MULTI_KEY}" />,	
 	}
 	
